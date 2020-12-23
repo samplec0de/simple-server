@@ -1,0 +1,64 @@
+<!doctype html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/main.css"/>
+    <title>Проект в Сириусе - Опечаточник</title>
+</head>
+
+<h1> Опечаточник и анализатор текста</h1>
+
+<textarea id="textwas" , name="text"></textarea>
+<img src="https://static.tildacdn.com/tild6338-3864-4039-b665-643663636335/png-arrows-2.png" />
+<textarea id="textnow" , name="text"></textarea>
+<br/>
+<button id="predict_button" type="submit">Исправить</button>
+<button id="predict_button2" type="submit">Предсказать</button>
+<button id="predict_button3" type="submit">Исправить symspell</button>
+<script>
+    function predict() {
+      console.log("predict");
+      const textarea = document.getElementById("textwas");
+      newtextarea = document.getElementById("textnow");
+      console.log(textarea.value);
+      const XHR = new XMLHttpRequest()
+      XHR.addEventListener('load', function(event) {
+        console.log(XHR.responseText);
+        newtextarea.value = XHR.responseText;
+      })
+      XHR.open('POST', 'predict')
+      XHR.send(textarea.value)
+    }
+     function predict2() {
+      console.log("predict2");
+      const textarea = document.getElementById("textwas");
+      newtextarea = document.getElementById("textnow");
+      console.log(textarea.value);
+      const XHR = new XMLHttpRequest()
+      XHR.addEventListener('load', function(event) {
+        console.log(XHR.responseText);
+        newtextarea.value = XHR.responseText;
+      })
+      XHR.open('POST', 'predict2')
+      XHR.send(textarea.value)
+    }
+    function predict3() {
+      console.log("predict3");
+      const textarea = document.getElementById("textwas");
+      newtextarea = document.getElementById("textnow");
+      console.log(textarea.value);
+      const XHR = new XMLHttpRequest()
+      XHR.addEventListener('load', function(event) {
+        console.log(XHR.responseText);
+        newtextarea.value = XHR.responseText;
+      })
+      XHR.open('POST', 'predict3')
+      XHR.send(textarea.value)
+    }
+    const btn = document.getElementById("predict_button");
+    const btn2 = document.getElementById("predict_button2");
+    const btn3 = document.getElementById("predict_button3");
+    btn.addEventListener("click", function() { predict(); });
+    btn2.addEventListener("click",function(){predict2();});
+    btn3.addEventListener("click",function(){predict3();});
+</script>
+</body>
